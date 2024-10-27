@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<div>
+    <html lang="en">
+
+    @Html.Action("PartialHead", "AdminLayout", "Admin")
+
+    <head>
+
+        @RenderSection("Styles", required: false)
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+
+            @Html.Action("PartialSidebar", "AdminLayout", "Admin")
+
+            @Html.Action("PartialNavbar", "AdminLayout", "Admin")
+
+            @RenderBody()
+
+            @RenderSection("Scripts", required: false)
+
+
+            @Html.Action("PartialFooter", "AdminLayout", "Admin")
+        </div>
+
+        @Html.Action("PartialScript", "AdminLayout", "Admin")
+
+    </body>
+</html>
+</div>

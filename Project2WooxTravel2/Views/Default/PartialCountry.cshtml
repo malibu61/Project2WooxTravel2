@@ -1,0 +1,56 @@
+﻿@model List<Project2WooxTravel2.Entities.Destination>
+
+<div class="visit-country">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-heading">
+                    <h2>Popüler Tur ve Seyahat Turlarımız</h2>
+                    <p>Dünyanın Dört Bir Noktasına Uzman Rehberler Eşliğinde Seyahate Çıkmaya Hazır mısınız?</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="items">
+                    <div class="row">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-12">
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-5">
+                                            <div class="image">
+                                                <img src="@item.ImageUrl" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 col-sm-7">
+                                            <div class="right-content">
+                                                <h4>@item.Country</h4>
+                                                <span>@item.City</span>
+                                                <div class="main-button">
+                                                    <a href="about.html">Tur Detaylarını Gör</a>
+                                                </div>
+                                                <p>@item.Description</p>
+                                                <ul class="info">
+                                                    <li><i class="fa fa-sun"></i>@item.DayNight Gün - @(item.DayNight-1) Gece</li>
+                                                    <li><i class="fa fa-dollar"></i>@item.Price ₺</li>
+                                                    <li><i class="fa fa-people-arrows"></i>@item.Capacity Kişi</li>
+                                                </ul>
+                                                <div class="text-button">
+                                                    <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
