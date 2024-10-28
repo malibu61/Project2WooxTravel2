@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
+
 
 namespace Project2WooxTravel2.Entities
 {
@@ -16,5 +19,8 @@ namespace Project2WooxTravel2.Entities
         public string Description { get; set; }
         public decimal Price { get; set; }
         public int Capacity { get; set; }
+        //public int CategoryId { get; set; }
+        //public virtual Category Category { get; set; }
+
     }
 }

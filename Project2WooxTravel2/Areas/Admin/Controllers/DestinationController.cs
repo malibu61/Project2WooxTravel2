@@ -11,10 +11,20 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
     [Authorize]
     public class DestinationController : Controller
     {
+        string Tag = "";
+
         TravelContext context = new TravelContext();
         public ActionResult DestinationList()
         {
-            var values = context.Destinations.ToList();
+            Tag = "DestinationList";
+            var values = context.Destinations.Where(x => x.Country == "Türkiye").ToList();
+            return View(values);
+        }
+
+        public ActionResult AbroadDestinationList()
+        {
+            Tag = "AbroadDestinationList";
+            var values = context.Destinations.Where(x => x.Country != "Türkiye").ToList();
             return View(values);
         }
 
@@ -59,6 +69,7 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
             value.Description = destination.Description;
             value.Price = destination.Price;
             context.SaveChanges();
+
             return RedirectToAction("DestinationList", "Destination", "Admin");
         }
     }

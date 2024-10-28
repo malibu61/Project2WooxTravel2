@@ -25,9 +25,11 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
             var a = Session["x"];
             var email = context.Admins.Where(x => x.Username == a.ToString()).Select(y => y.Email).FirstOrDefault();
             var values = context.Messages.Where(x => x.ReceiverMail == email).ToList();
+
+            ViewBag.PersonName = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Name + " " + x.Surname).FirstOrDefault();
+
             return View(values);
-            ////return RedirectToAction("InBox", "Message", new { area = "Admin" });
-            //return RedirectToAction("InBox", "Message", new { area = "Admin", values });
+
         }
 
         public ActionResult SendBox()
@@ -47,10 +49,11 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
         public ActionResult SendMessage(Message message)
         {
             var a = Session["x"];
-            var email = context.Admins.Where(x => x.Username == a).Select(y => y.Email).FirstOrDefault();
+            var email = context.Admins.Where(x => x.Username == a.ToString()).Select(y => y.Email).FirstOrDefault();
             message.SenderMail = email;
             message.SendDate = DateTime.Now;
             message.IsRead = false;
+            message.AdminId = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.AdminId).FirstOrDefault();
             context.Messages.Add(message);
             context.SaveChanges();
             return RedirectToAction("Sendbox", "Message", new { area = "Admin" });

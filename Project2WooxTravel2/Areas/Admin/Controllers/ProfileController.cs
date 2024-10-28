@@ -12,11 +12,21 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
     public class ProfileController : Controller
     {
         TravelContext context = new TravelContext();
+
+        [HttpGet]
         public ActionResult Index()
         {
             var a = Session["x"];
             var values = context.Admins.Where(x => x.Username == a.ToString()).FirstOrDefault();
             return View(values);
         }
+
+        //[HttpPost]
+        //public ActionResult Index(Admin admin)
+        //{
+        //    var a = Session["x"];
+        //    var values = context.Admins.Where(x => x.Username == a.ToString()).FirstOrDefault();
+        //    return View(values);
+        //}
     }
 }

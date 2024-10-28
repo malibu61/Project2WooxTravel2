@@ -45,8 +45,28 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
 
         public PartialViewResult PartialMessagesTag()
         {
-            var values = context.Messages.OrderByDescending(x => x.MessageId).Take(5).ToList();
+            var a = Session["x"];
+            var UserEmail = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Email).FirstOrDefault();
+            var values = context.Messages.Where(x => x.ReceiverMail == UserEmail.ToString()).OrderByDescending(x => x.MessageId).Take(5).ToList();
             return PartialView(values);
+        }
+
+        public PartialViewResult PartialAllAreReadTag()
+        {
+            var a = Session["x"];
+
+            var UserEmail = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Email).FirstOrDefault();
+            var values = context.Messages.Where(x => x.ReceiverMail == UserEmail.ToString()).ToList();
+
+
+            foreach (var i in values)
+            {
+                i.IsRead = true;
+            }
+
+            context.SaveChanges();
+
+            return PartialView();
         }
 
         public PartialViewResult PartialNotificationsTag()
@@ -71,6 +91,18 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login", "Controllers");
+        }
+
+        public PartialViewResult PartialUserInformationBox()
+        {
+            var a = Session["x"];
+            var values = context.Admins.Where(x => x.Username == a.ToString()).FirstOrDefault();
+
+            ViewBag.UserImageUrl = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.ImageUrl).FirstOrDefault();
+            ViewBag.UserName = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Name + " " + x.Surname).FirstOrDefault();
+            ViewBag.UserEmail = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Email).FirstOrDefault();
+
+            return PartialView(values);
         }
 
     }

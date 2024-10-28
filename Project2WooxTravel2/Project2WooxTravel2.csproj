@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\Controllers\DestinationController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WidgetController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -699,6 +700,10 @@
     <Content Include="Areas\Admin\Views\AdminLayout\PartialMessagesTag.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLayout\PartialNotificationsTag.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLayout\Payment.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLayout\PartialUserInformationBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Destination\AbroadDestinationList.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\WidgetList.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
