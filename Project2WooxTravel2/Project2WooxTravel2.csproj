@@ -133,13 +133,14 @@
     <Compile Include="Areas\Admin\Controllers\DestinationController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticController.cs" />
     <Compile Include="Areas\Admin\Controllers\WidgetController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Context\TravelContext.cs" />
-    <Compile Include="Controllers\RegisterrController.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Contact.cs" />
@@ -174,6 +175,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Controllers\cssTag.html" />
+    <Content Include="cardTheme\index.html" />
+    <Content Include="cardTheme\script.js" />
+    <Content Include="cardTheme\style.css" />
     <Content Include="colorlib-error-404-6\css\style.css" />
     <Content Include="colorlib-error-404-6\index.html" />
     <Content Include="colorlib-error-404-6\readme.txt" />
@@ -599,6 +603,8 @@
     <Content Include="kaiadmin-lite-1.2.0\tables\datatables.html" />
     <Content Include="kaiadmin-lite-1.2.0\tables\tables.html" />
     <Content Include="kaiadmin-lite-1.2.0\widgets.html" />
+    <Content Include="ReservationPopUp\script.js" />
+    <Content Include="ReservationPopUp\styles.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -704,6 +710,8 @@
     <Content Include="Areas\Admin\Views\Destination\AbroadDestinationList.cshtml" />
     <Content Include="Areas\Admin\Views\Widget\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Widget\WidgetList.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistic\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryUpdate.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -750,6 +758,10 @@
     <Content Include="Views\Default\PartialBanner.cshtml" />
     <Content Include="Views\Default\PartialCountry.cshtml" />
     <Content Include="Views\Default\PartialFooter.cshtml" />
+    <Content Include="Views\ErrorPages\Page401.cshtml" />
+    <Content Include="Views\Default\PartialPopUpReservation.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\TourDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

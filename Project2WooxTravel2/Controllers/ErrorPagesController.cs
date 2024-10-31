@@ -13,5 +13,10 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Page401()
+        {
+            return View();
+        }
     }
 }

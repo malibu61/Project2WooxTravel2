@@ -1,0 +1,39 @@
+﻿@model Project2WooxTravel2.Entities.Category
+
+@{
+    ViewBag.Title = "CategoryUpdate";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Kategori Güncelleme</h2>
+
+
+<div class="container">
+    <div class="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Profil Güncelleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post">
+                            @Html.HiddenFor(x => x.CategoryId)
+
+                            <label>Ad</label>
+                            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                            <br />
+
+                            <label>Soyad</label>
+                            @Html.TextBoxFor(x => x.CategoryStatus, new { @class = "form-control" })
+                            <br />
+
+                            <button class="btn btn-primary">Kategori Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

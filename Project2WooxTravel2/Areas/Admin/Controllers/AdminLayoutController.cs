@@ -81,25 +81,13 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
             return View();
         }
 
-
-        public ActionResult LogOut()
-        {
-            //FormsAuthentication.SignOut();
-            //Session.Abandon();
-            //return RedirectToAction("Index","Login");
-
-            FormsAuthentication.SignOut();
-            Session.Abandon();
-            return RedirectToAction("Index", "Login", "Controllers");
-        }
-
         public PartialViewResult PartialUserInformationBox()
         {
             var a = Session["x"];
             var values = context.Admins.Where(x => x.Username == a.ToString()).FirstOrDefault();
 
             ViewBag.UserImageUrl = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.ImageUrl).FirstOrDefault();
-            ViewBag.UserName = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Name + " " + x.Surname).FirstOrDefault();
+            ViewBag.UserName = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Name).FirstOrDefault();
             ViewBag.UserEmail = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Email).FirstOrDefault();
 
             return PartialView(values);

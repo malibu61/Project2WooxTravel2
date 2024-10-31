@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    var capacityData = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Capacity);
+    var capacityNameData = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.CapacityName);
+
+
+    var priceData = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Price);
+    var priceNameData = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PriceName);
+
+    var dayNightData = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DayNight);
+    var dayNightDataName = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DayNightName);
+}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<div class="container">
+    <div class="page-inner">
+        <h3 class="fw-bold mb-3">İstatistikler</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Kapasite</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Kapasite</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="jsBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Fiyatlar</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Gün Sayısı</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="doughnutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart JS -->
+<script src="/kaiadmin-lite-1.2.0/assets/js/plugin/chart.js/chart.min.js"></script>
+
+<script>
+    var lineChart = document.getElementById("lineChart").getContext("2d"),
+        barChart = document.getElementById("barChart").getContext("2d"),
+        jsBarChart = document.getElementById("jsBarChart").getContext("2d"),
+        doughnutChart = document.getElementById("doughnutChart").getContext("2d");
+
+    // ViewBag'den gelen verileri JavaScript değişkenlerine aktar
+    var capacityData = @Html.Raw(capacityData);
+    var capacityNameData = @Html.Raw(capacityNameData);
+
+    var priceData = @Html.Raw(priceData);
+    var priceNameData = @Html.Raw(priceNameData);
+
+    var dayNightData = @Html.Raw(dayNightData);
+    var dayNightDataName = @Html.Raw(dayNightDataName);
+
+    // Line Chart
+    var myLineChart = new Chart(lineChart, {
+        type: "line",
+        data: {
+            labels: capacityNameData,
+            datasets: [{
+                label: "Kapasite",
+                borderColor: "#1d7af3",
+                pointBorderColor: "#FFF",
+                pointBackgroundColor: "#1d7af3",
+                pointBorderWidth: 2,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 1,
+                pointRadius: 4,
+                backgroundColor: "transparent",
+                fill: true,
+                borderWidth: 2,
+                data: capacityData
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: "bottom",
+                labels: {
+                    padding: 10,
+                    fontColor: "#1d7af3",
+                },
+            },
+            tooltips: {
+                bodySpacing: 4,
+                mode: "nearest",
+                intersect: 0,
+                position: "nearest",
+                xPadding: 10,
+                yPadding: 10,
+                caretPadding: 10,
+            },
+            layout: {
+                padding: { left: 15, right: 15, top: 15, bottom: 15 },
+            },
+        },
+    });
+
+    // Bar Chart
+    var myBarChart = new Chart(barChart, {
+        type: "bar",
+        data: {
+            labels: priceNameData,
+            datasets: [{
+                label: "Fiyatlar",
+                backgroundColor: "rgb(23, 125, 255)",
+                borderColor: "rgb(23, 125, 255)",
+                data: priceData
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    },
+                }],
+            },
+        },
+    });
+
+    //Chart.js ile Bar Chart
+    var myChart = new Chart(jsBarChart, {
+        type: 'bar',
+        data: {
+            labels: capacityNameData,
+            datasets: [{
+                label: 'Kapasite',
+                data: capacityData,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    //doughnetChart
+    var myDoughnutChart = new Chart(doughnutChart, {
+        type: "doughnut",
+        data: {
+            datasets: [{
+                data: dayNightData,
+                backgroundColor: ["#f3545d", "#fdaf4b", "#1d7af3", "#fbc531", "#e84118", "#33d9b2","#706fd3"],
+            }],
+            labels: dayNightDataName,
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: "bottom",
+            },
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 20,
+                    top: 20,
+                    bottom: 20,
+                },
+            },
+        },
+    });
+</script>

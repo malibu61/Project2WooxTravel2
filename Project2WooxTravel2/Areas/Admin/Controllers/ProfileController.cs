@@ -21,12 +21,18 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
             return View(values);
         }
 
-        //[HttpPost]
-        //public ActionResult Index(Admin admin)
-        //{
-        //    var a = Session["x"];
-        //    var values = context.Admins.Where(x => x.Username == a.ToString()).FirstOrDefault();
-        //    return View(values);
-        //}
+        [HttpPost]
+        public ActionResult Index(Entities.Admin admin)
+        {
+            var values = context.Admins.Where(x => x.AdminId == admin.AdminId).FirstOrDefault();
+            values.Username = admin.Username;
+            values.Name = admin.Name;
+            values.Surname = admin.Surname;
+            values.Email = admin.Email;
+            values.Password = admin.Password;
+            values.ImageUrl = admin.ImageUrl;
+            context.SaveChanges();
+            return View(values);
+        }
     }
 }

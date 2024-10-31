@@ -1,12 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
-//using Project2WooxTravel2.Context;
-//using Project2WooxTravel2.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,6 +29,8 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
             var a = Session["x"];
             var email = context.Admins.Where(x => x.Username == a.ToString()).Select(y => y.Email).FirstOrDefault();
             var values = context.Messages.Where(x => x.SenderMail == email).ToList();
+
+            ViewBag.PersonName = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Name + " " + x.Surname).FirstOrDefault();
             return View(values);
         }
 
