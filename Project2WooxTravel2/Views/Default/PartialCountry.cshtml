@@ -1,4 +1,7 @@
-﻿@model List<Project2WooxTravel2.Entities.Destination>
+﻿﻿@using Project2WooxTravel2.Entities
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Destination>
 
 <div class="visit-country">
     <div class="container">
@@ -32,15 +35,26 @@
                                                 <div class="main-button">
                                                     <a href="/About/TourDetails/@item.DestinationId">Tur Detaylarını Gör</a>
                                                 </div>
-                                                <p>@item.Description</p>
+
+                                                @if (item.Description.Length >= 200)
+                                                {
+                                                    <p>@item.Description.Substring(0, 200)...</p>
+                                                }
+
+                                                @if (item.Description.Length < 200)
+                                                {
+                                                    <p>@item.Description</p>
+                                                }
+
+                                                <div class="text-button">
+                                                    <a href="/About/TourDetails/@item.DestinationId">Devamını Oku <i class="fa fa-arrow-right"></i></a>
+                                                </div>
+
                                                 <ul class="info">
                                                     <li><i class="fa fa-sun"></i>@item.DayNight Gün - @(item.DayNight-1) Gece</li>
                                                     <li><i class="fa fa-dollar"></i>@item.Price ₺</li>
                                                     <li><i class="fa fa-people-arrows"></i>@item.Capacity Kişi</li>
                                                 </ul>
-                                                <div class="text-button">
-                                                    <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -51,6 +65,29 @@
                 </div>
             </div>
         </div>
+        <div class="pagination-wrapper text-center: col-lg-12" style="margin-left:600px;">
+            <ul class="page-numbers">
+                @Html.PagedListPager((IPagedList)Model, p => Url.Action("Index", new { p }), new PagedListRenderOptions
+           {
+               LiElementClasses = new List<string> { "page-link" },
+               MaximumPageNumbersToDisplay = 3,
+                DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+               DisplayLinkToLastPage = PagedListDisplayMode.Never
+           })
+            </ul>
+        </div>
     </div>
 </div>
 
+
+
+
+<div class="col-lg-12">
+    <ul class="page-numbers">
+        <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+        <li><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+    </ul>
+</div>

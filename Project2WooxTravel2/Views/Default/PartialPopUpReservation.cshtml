@@ -1,4 +1,4 @@
-﻿@model Project2WooxTravel2.Entities.Destination
+﻿@model Project2WooxTravel2.Entities.Reservation
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -11,79 +11,6 @@
     <title>Rezervasyon Popup'ı</title>
 </head>
 <body>
-    @*<button id="openPopup" class="button">Rezervasyon Oluştur</button>*@
-
-    <!--<div id="reservationPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" id="closePopup">&times;</span>
-            <h2><i class="fas fa-calendar-alt"></i> Rezervasyon Formu</h2>
-            <form id="reservationForm">
-                <label for="name"><i class="fas fa-user"></i> İsim:</label>
-                <input type="text" id="name" placeholder="Adınız" required>
-
-                <label for="Surname"><i class="fas fa-user"></i> İsim:</label>
-                <input type="text" id="Surname" placeholder="Soyadınız" required>
-
-                <label for="email"><i class="fas fa-envelope"></i> E-posta:</label>
-                <input type="email" id="email" placeholder="E-posta adresiniz" required>
-
-                <label for="date"><i class="fas fa-calendar-day"></i> Tur:</label>
-                Html.DropDownListFor(x => x.DestinationId, (List<SelectListItem>)ViewBag.ReservationDropDL, new { class = "form-control" })
-
-                <label for="guests"><i class="fas fa-users"></i> Misafir Sayısı:</label>
-                <input type="number" id="guests" min="1" placeholder="Misafir sayısını girin" required>
-                <br />
-
-                <button type="submit" class="submit-button"><i class="fas fa-check"></i> Rezervasyonu Tamamla</button>
-            </form>
-        </div>
-    </div>-->
-    @*<div id="reservationPopup" class="popup">
-            <div class="popup-content">
-                <span class="close" id="closePopup">&times;</span>
-                <h2><i class="fas fa-calendar-alt"></i> Rezervasyon Formu</h2>
-                <form id="reservationForm">
-                    <label for="name"><i class="fas fa-user"></i> İsim:</label>
-                    <input type="text" id="name" placeholder="Adınızı girin" required>
-
-                    <label for="email"><i class="fas fa-envelope"></i> E-posta:</label>
-                    <input type="email" id="email" placeholder="E-posta adresinizi girin" required>
-
-                    <label for="date"><i class="fas fa-calendar-day"></i> Tarih:</label>
-                    <div class="date-dropdowns">
-                        <select id="day" required>
-                            <option value="">Gün</option>
-                            @for (int i = 1; i <= 31; i++)
-                            {
-                                <option value="@i">@i</option>
-                            }
-                        </select>
-                        <select id="month" required>
-                            <option value="">Ay</option>
-                            @for (int i = 1; i <= 12; i++)
-                            {
-                                <option value="@i">@i</option>
-                            }
-                        </select>
-                        <select id="year" required>
-                            <option value="">Yıl</option>
-                            @for (int i = 2024; i <= 2030; i++)
-                            {
-                                <option value="@i">@i</option>
-                            }
-                        </select>
-                    </div>
-
-                    <label for="guests"><i class="fas fa-users"></i> Misafir Sayısı:</label>
-                    <input type="number" id="guests" min="1" placeholder="Misafir sayısını girin" required>
-
-                    <button type="submit" class="submit-button"><i class="fas fa-check"></i> Rezervasyonu Tamamla</button>
-                </form>
-            </div>
-        </div>*@
-
-
-
     <div id="reservationPopup" class="popup">
         <div class="popup-content">
             <span class="close" id="closePopup">&times;</span>
@@ -100,8 +27,8 @@
                 <label for="PersonCount"><i class="fas fa-users"></i> Misafir Sayısı:</label>
                 <input type="number" id="PersonCount" name="PersonCount" min="1" placeholder="Misafir sayısını girin" required>
 
-                <label for="Description"><i class="fas fa-users"></i> Not:</label>
-                <input type="text" id="Description" name="Description" placeholder="Not">
+                <label for="Description"><i class="fas fa-users"></i> Tur:</label>
+                @Html.DropDownListFor(x => x.Description, (List<SelectListItem>)ViewBag.ReservationDropDL, new { @class = "form-control" })
                 <br />
 
                 <button type="submit" class="submit-button"><i class="fas fa-check"></i> Rezervasyonu Tamamla</button>

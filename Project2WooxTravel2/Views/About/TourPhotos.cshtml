@@ -1,0 +1,31 @@
+﻿@model List<Project2WooxTravel2.Entities.Destination>
+
+
+<div class="cities-town">
+    <div class="container">
+        <div class="row">
+            <div class="slider-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Turlardan Fotoğraflar</h2>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="owl-cites-town owl-carousel">
+
+                            @foreach (var item in Model)
+                            {
+
+                                <div class="item" style="width:300px;height:200px;">
+                                    <div class="thumb">
+                                        <img src="@item.ImageUrl" style="width:300px;height:200px;" alt="">
+                                        <h4>@item.Country</h4>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

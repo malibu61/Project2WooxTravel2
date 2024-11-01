@@ -30,5 +30,17 @@ namespace Project2WooxTravel2.Controllers
             ViewBag.DestinationPrice = context.Destinations.Find(id).Price;
             return View(values);
         }
+
+        public PartialViewResult TourPhotos()
+        {
+            var values = context.Destinations.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult TourDeals()
+        {
+            var values = context.Destinations.ToList();
+            return PartialView(values);
+        }
     }
 }

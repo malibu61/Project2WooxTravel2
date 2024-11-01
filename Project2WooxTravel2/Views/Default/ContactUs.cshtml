@@ -1,0 +1,202 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>WoOx Travel Reservation Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/wooxtravel-1.0.0/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/wooxtravel-1.0.0/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/wooxtravel-1.0.0/assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="/wooxtravel-1.0.0/assets/css/owl.css">
+    <link rel="stylesheet" href="/wooxtravel-1.0.0/assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!--
+
+    TemplateMo 580 Woox Travel
+
+    https://templatemo.com/tm-580-woox-travel
+
+    -->
+</head>
+
+<body>
+
+
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="/wooxtravel-1.0.0/assets/images/logo.png" alt="">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="/Default/Index">Ana Sayfa</a></li>
+                            <li><a href="/Default/ContactUs/" class="active">Hakkımızda</a></li>
+                            <li><a href="/Default/PartialPopUpReservation/">Rezervasyon</a></li>
+                            <li><a href="/Login/Index/">Admin Sayfasına Git</a></li>
+                            <li><a href="/Register/Index/">Kayıt Ol</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="second-page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>WooxTravel Hakkında</h4>
+                    <h2>
+                        Geleceğe seyahat…
+                    </h2>
+                    <p>
+                        WooxTravel demek seyahate, tatile, keşfetmeye dair her şey demek… Kurulduğu günden bugüne, sahip olduğu 60 yıla yakın deneyimi, üstün hizmet anlayışı, en iyiyi, en kaliteliyi, en seçkini hedefleyen vizyonuyla, turizmin, seyahatin ve ulaşımın her noktasında faaliyet gösteren bir markalar topluluğu hâline gelen WooxTravel, ülkemizin en güvenilir markalarından biri olmanın gururunu taşıyor. Dünyaca tanınan, trendleri belirleyen, sadece bugünün değil yarının da markası olmak için her geçen gün yenilenen ve gelişen bir kurumsal yapı, alanında en iyilerin bir arada olduğu bir kurum kültürü ve sektöre her gün tam donanımlı, her yönüyle kalifiye profesyoneller kazandıran bir kurum… WooxTravel, kısa vadeli başarılarla değil, yarattığı uzun vadeli değerlerle adından söz ettiren bir marka olarak, geçmişte de, bugün de, gelecekte de bu vizyonu sürdürmek üzere çalışıyor.
+                    </p>
+                    <div class="main-button"><a href="about.html">Daha Fazla</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="more-info reservation-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="info-item">
+                        <i class="fa fa-phone"></i>
+                        <h4>Bize Ulaş</h4>
+                        <a href="#">+123 456 789 (0)</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="info-item">
+                        <i class="fa fa-envelope"></i>
+                        <h4>Email Adresimiz</h4>
+                        <a href="#">mali1@email.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="info-item">
+                        <i class="fa fa-map-marker"></i>
+                        <h4>Konumumuz</h4>
+                        <a href="#">Kadıköy Boğa Heykeli, Altıyol Meydanı, Söğütlü Çeşme Cd, 34714 Kadıköy/İstanbul, Türkiye</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reservation-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8580.012390142516!2d29.02543577711748!3d40.988748465341416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9f0b8afbb1f%3A0x703cd0993370cf84!2zS2FkxLFrw7Z5IEJvxJ9hIEhleWtlbGk!5e0!3m2!1str!2str!4v1730443050355!5m2!1str!2str" width="100%" height="450px" frameborder="0" style="border:0; border-top-left-radius: 23px; border-top-right-radius: 23px;" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <form id="reservation-form" name="gs" method="post" role="search" action="#">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4>Bize Ulaşmak İçin Bu Formu <em>Eksiksiz</em> Doldurunuz</h4>
+                            </div>
+                            <div class="col-lg-6">
+                                <fieldset>
+                                    <label for="Email" class="form-label">Email Adresiniz</label>
+                                    <input type="text" name="Email" class="Email" placeholder="abc@gmail.com" autocomplete="on" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6">
+                                <fieldset>
+                                    <label for="Number" class="form-label">Telefon Numaranız</label>
+                                    <input type="text" name="Number" class="Number" placeholder="+xxx xxx xxxx" autocomplete="on" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6">
+                                <fieldset>
+                                    <label for="Address" class="form-label">Adresiniz</label>
+                                    <input type="text" name="Address" class="Address" placeholder="Adresiniz" autocomplete="on" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6">
+                                <fieldset>
+                                    <label for="Number" class="form-label">Rezervasyon Talep Ettiğiniz Gün</label>
+                                    <input type="date" name="date" class="date" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <label for="MapLocation" class="form-label">Harita Lokasyon Bağlantısı</label>
+                                    <input type="text" name="MapLocation" class="MapLocation" placeholder="Harita Lokasyon Bağlantısı" autocomplete="on" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <button class="main-button">Rezervasyon Oluştur</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Action("PartialFooter", "Default")
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="/wooxtravel-1.0.0/vendor/jquery/jquery.min.js"></script>
+    <script src="/wooxtravel-1.0.0/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/wooxtravel-1.0.0/assets/js/isotope.min.js"></script>
+    <script src="/wooxtravel-1.0.0/assets/js/owl-carousel.js"></script>
+    <script src="/wooxtravel-1.0.0/assets/js/wow.js"></script>
+    <script src="/wooxtravel-1.0.0/assets/js/tabs.js"></script>
+    <script src="/wooxtravel-1.0.0/assets/js/popup.js"></script>
+    <script src="/wooxtravel-1.0.0/assets/js/custom.js"></script>
+
+    <script>
+        $(".option").click(function () {
+            $(".option").removeClass("active");
+            $(this).addClass("active");
+        });</script>
+
+</body>
+
+</html>

@@ -88,6 +88,7 @@ namespace Project2WooxTravel2.Areas.Admin.Controllers
 
             ViewBag.UserImageUrl = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.ImageUrl).FirstOrDefault();
             ViewBag.UserName = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Name).FirstOrDefault();
+            ViewBag.UserSurname = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Surname).FirstOrDefault();
             ViewBag.UserEmail = context.Admins.Where(x => x.Username == a.ToString()).Select(x => x.Email).FirstOrDefault();
 
             return PartialView(values);

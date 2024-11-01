@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.Mvc;
 using Project2WooxTravel2.Context;
 using Project2WooxTravel2.Entities;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Project2WooxTravel2.Controllers
 {
@@ -60,9 +63,22 @@ namespace Project2WooxTravel2.Controllers
             return RedirectToAction("Index", "Default");
         }
 
-        public PartialViewResult PartialCountry()
+        public ActionResult ContactUs()
         {
-            var values = context.Destinations.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(Contact contact)
+        {
+            context.Contacts.Add(contact);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Default");
+        }
+
+        public PartialViewResult PartialCountry(int p = 1)
+        {
+            var values = context.Destinations.ToList().ToPagedList(p, 3);
             return PartialView(values);
         }
 
